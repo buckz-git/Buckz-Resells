@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Buckz Resells | Curated Streetwear & Sneakers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Buckz Resells – curated streetwear, sneakers, and designer pieces for under retail. Verified items, fast shipping, and secure checkout."
+  />
+
+  <!-- Basic styles -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-main: #020617;
+      --bg-secondary: #050816;
+      --border-subtle: rgba(148, 163, 184, 0.25);
+      --border-strong: rgba(148, 163, 184, 0.6);
+      --accent: #facc15;
+      --accent-soft: rgba(250, 204, 21, 0.12);
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #020617 0, #020617 40%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* HEADER / NAV */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(2, 6, 23, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 0;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-links a {
+      opacity: 0.78;
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.18s ease-out;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      font-size: 0.78rem;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(250, 204, 21, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      background: var(--accent-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      white-space: nowrap;
+    }
+
+    .nav-cta span {
+      font-size: 1rem;
+    }
+
+    /* Mobile nav */
+
+    .nav-toggle {
+      display: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: transparent;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .nav-toggle-line {
+      width: 16px;
+      height: 2px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      position: relative;
+    }
+
+    .nav-toggle-line::before,
+    .nav-toggle-line::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 16px;
+      height: 2px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      transition: transform 0.18s ease-out, top 0.18s ease-out, opacity 0.1s ease-out;
+    }
+
+    .nav-toggle-line::before {
+      top: -5px;
+    }
+
+    .nav-toggle-line::after {
+      top: 5px;
+    }
+
+    .nav-toggle.active .nav-toggle-line {
+      background: transparent;
+    }
+
+    .nav-toggle.active .nav-toggle-line::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .nav-toggle.active .nav-toggle-line::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
+    .nav-links-mobile {
+      display: none;
+      flex-direction: column;
+      gap: 0.7rem;
+      padding: 0.8rem 0 0.9rem;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border-top: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .nav-links-mobile a {
+      opacity: 0.85;
+    }
+
+    .nav-links-mobile a:hover {
+      opacity: 1;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 2.8rem 0 1.8rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.76rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.15rem, 2.4rem + 0.7vw, 3rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-highlight {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      max-width: 520px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      cursor: pointer;
+      border: 1px solid transparent;
+      background: none;
+      color: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #111827;
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.08);
+    }
+
+    .btn-outline {
+      border-color: var(--border-strong);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+    }
+
+    .hero-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.75);
+    }
+
+    .hero-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .hero-card {
+      border-radius: 1.2rem;
+      border: 1px solid var(--border-subtle);
+      padding: 1.1rem;
+      background: radial-gradient(circle at top left, #111827, #020617);
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .hero-card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .hero-card-text {
+      font-size: 0.87rem;
+      color: var(--text-muted);
+    }
+
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+    }
+
+    .hero-chip {
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-pill-accent {
+      position: absolute;
+      top: 0.85rem;
+      right: 0.9rem;
+      font-size: 0.72rem;
+      padding: 0.24rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(250, 204, 21, 0.7);
+      background: var(--accent-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    /* BRAND STRIP */
+
+    .brands {
+      padding: 1.6rem 0 2.1rem;
+    }
+
+    .brands-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.85rem;
+      text-align: center;
+    }
+
+    .brands-strip {
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: radial-gradient(circle at top, #020617, #000);
+      padding: 0.5rem;
+      overflow: hidden;
+    }
+
+    .brands-inner {
+      display: flex;
+      gap: 0.7rem;
+      white-space: nowrap;
+      animation: brands-scroll 28s linear infinite;
+    }
+
+    .brand-pill {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      padding: 0.25rem 0.9rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      background: rgba(15, 23, 42, 0.96);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .brand-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.8);
+    }
+
+    @keyframes brands-scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* STORE SECTION (ECWID) */
+
+    .store-section {
+      padding: 2.2rem 0 2.6rem;
+    }
+
+    .store-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 0.9rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .store-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .store-subtitle {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      max-width: 380px;
+    }
+
+    .store-pill {
+      font-size: 0.78rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-strong);
+      opacity: 0.85;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    #my-store-118134046 {
+      margin-top: 0.4rem;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+
+    /* TESTIMONIALS */
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .testimonials {
+      padding: 0.3rem 0 2.5rem;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .testimonial-card {
+      border-radius: 1.1rem;
+      border: 1px solid var(--border-subtle);
+      padding: 1rem;
+      background: radial-gradient(circle at top left, #111827, #020617);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonial-text {
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .testimonial-name {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .testimonial-pill {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.9rem;
+      font-size: 0.72rem;
+      padding: 0.22rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(250, 204, 21, 0.7);
+      background: var(--accent-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    /* MISSION / SHIPPING */
+
+    .info-section {
+      padding: 0 0 2.6rem;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.4rem;
+    }
+
+    .info-card {
+      border-radius: 1.1rem;
+      border: 1px solid var(--border-subtle);
+      padding: 1.2rem;
+      background: radial-gradient(circle at top left, #020617, #020617);
+    }
+
+    .info-card h3 {
+      font-size: 0.96rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.65rem;
+    }
+
+    .info-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .info-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 0.55rem;
+    }
+
+    .info-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .info-extra-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.1rem;
+      margin-top: 1.4rem;
+    }
+
+    .info-extra-card {
+      border-radius: 1rem;
+      border: 1px solid var(--border-subtle);
+      padding: 1rem;
+      background: radial-gradient(circle at top right, #020617, #000);
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .info-extra-card h4 {
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.45rem;
+      color: var(--text-main);
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 1.5rem 0 1.9rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-links a {
+      opacity: 0.8;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 2.1rem;
+      }
+
+      .hero-card {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .hero {
+        padding-bottom: 1.4rem;
+      }
+
+      .brands-strip {
+        border-radius: 1.1rem;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .store-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .store-pill {
+        font-size: 0.75rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        letter-spacing: 0.08em;
+      }
+
+      .logo {
+        font-size: 1rem;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="logo">
+          BUCKZ<span>RESELLS</span>
+        </div>
+
+        <nav class="nav-links">
+          <a href="#store">All</a>
+          <a href="#store">Apparel</a>
+          <a href="#store">Shoes</a>
+          <a href="#mission">About</a>
+          <a href="#shipping">Delivery</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a href="#store" class="nav-cta">
+          <span>●</span> Shop Buckz
+        </a>
+
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <div class="nav-toggle-line"></div>
+        </button>
+      </div>
+
+      <nav class="nav-links-mobile">
+        <a href="#store">All</a>
+        <a href="#store">Apparel</a>
+        <a href="#store">Shoes</a>
+        <a href="#mission">About</a>
+        <a href="#shipping">Delivery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <p class="hero-eyebrow">Buckz Resells • Curated heat</p>
+          <h1 class="hero-title">
+            Shop all our <span class="hero-highlight">Buckz collections</span>
+          </h1>
+          <p class="hero-subtitle">
+            Buckz Resells moves streetwear, sneakers, and designer pieces for way less than retail. Every item is checked
+            before it ships so you get exactly what you paid for.
+          </p>
+          <div class="hero-actions">
+            <a href="#store" class="btn-primary">Browse the Buckz store →</a>
+            <a href="#mission" class="btn-outline">Why Buckz?</a>
+          </div>
+          <div class="hero-badge-row">
+            <div class="hero-badge">
+              <span class="hero-dot"></span>
+              <span>Fast shipping</span>
+            </div>
+            <div class="hero-badge">
+              <span class="hero-dot"></span>
+              <span>Verified pieces only</span>
+            </div>
+            <div class="hero-badge">
+              <span class="hero-dot"></span>
+              <span>Run by @buckzresells</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="hero-pill-accent">New Buckz drops weekly</div>
+          <p class="hero-tag">The Buckz Resells promise</p>
+          <h2 class="hero-card-title">Real items, real prices.</h2>
+          <p class="hero-card-text">
+            Buckz Resells is built for people who actually wear what they buy. We source clean pairs and pieces, check
+            everything by hand, and keep prices as close to steals as possible.
+          </p>
+          <div class="hero-chip-row">
+            <span class="hero-chip">Curated inventory</span>
+            <span class="hero-chip">Secure Ecwid checkout</span>
+            <span class="hero-chip">DM-friendly support</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- BRANDS STRIP -->
+    <section class="brands">
+      <div class="container">
+        <p class="brands-label">Brands moving through Buckz</p>
+        <div class="brands-strip">
+          <div class="brands-inner">
+            <!-- loop of brands -->
+            <div class="brand-pill"><span class="brand-dot"></span> CPFM</div>
+            <div class="brand-pill"><span class="brand-dot"></span> BB</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Lanvin</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Marni</div>
+            <div class="brand-pill"><span class="brand-dot"></span> DT</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Rick Owens</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Dior</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Amiri</div>
+            <div class="brand-pill"><span class="brand-dot"></span> MMY</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Bottega</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Helmut</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Gallery Dept</div>
+            <div class="brand-pill"><span class="brand-dot"></span> LV</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Off-White</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Sp5der</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Chrome Hearts</div>
+
+            <!-- second loop for smooth scroll -->
+            <div class="brand-pill"><span class="brand-dot"></span> CPFM</div>
+            <div class="brand-pill"><span class="brand-dot"></span> BB</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Lanvin</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Marni</div>
+            <div class="brand-pill"><span class="brand-dot"></span> DT</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Rick Owens</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Dior</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Amiri</div>
+            <div class="brand-pill"><span class="brand-dot"></span> MMY</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Bottega</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Helmut</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Gallery Dept</div>
+            <div class="brand-pill"><span class="brand-dot"></span> LV</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Off-White</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Sp5der</div>
+            <div class="brand-pill"><span class="brand-dot"></span> Chrome Hearts</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORE (ECWID) -->
+    <section id="store" class="store-section">
+      <div class="container">
+        <div class="store-header">
+          <div>
+            <h2 class="store-title">New in Buckz Resells</h2>
+            <p class="store-subtitle">
+              Tap a product to view sizing, condition, and details. Checkout is handled securely through our Ecwid-powered
+              Buckz Resells store. Use categories and filters inside the store to dial in what you want.
+            </p>
+          </div>
+          <div class="store-pill">All Buckz drops • Filter in-store</div>
+        </div>
+
+        <!-- ECWID STORE EMBED (STORE ID: 118134046) -->
+        <div id="my-store-118134046"></div>
+
+        <script
+          data-cfasync="false"
+          type="text/javascript"
+          src="https://app.ecwid.com/script.js?118134046&data_platform=code"
+          charset="utf-8">
+        </script>
+
+        <script type="text/javascript">
+          xProductBrowser(
+            "categoriesPerRow=3",
+            "views=grid(20,3) list(60) table(60)",
+            "categoryView=grid",
+            "searchView=list",
+            "id=my-store-118134046"
+          );
+        </script>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+      <div class="container">
+        <h2 class="section-title">What Buckz buyers say</h2>
+        <p class="section-subtitle">
+          A few messages from people who’ve already copped from Buckz Resells.
+        </p>
+
+        <div class="testimonial-grid">
+          <article class="testimonial-card">
+            <div class="testimonial-pill">Repeat buyer</div>
+            <p class="testimonial-tag">Express shipping</p>
+            <p class="testimonial-text">
+              “Buckz got my pair out crazy fast. It landed before my son’s birthday and the condition was even better than I expected.”
+            </p>
+            <p class="testimonial-name">– Lidiya K.</p>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-pill">Support</div>
+            <p class="testimonial-tag">Customer care</p>
+            <p class="testimonial-text">
+              “I was spamming questions and he stayed patient the whole time. Sent pics, updates, everything. Super easy to work with.”
+            </p>
+            <p class="testimonial-name">– Kendrick C.</p>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-pill">Fast</div>
+            <p class="testimonial-tag">Delivery times</p>
+            <p class="testimonial-text">
+              “Shoes came in like 5 days, exactly like the photos from @buckzresells. Boxed up right and no weird surprises.”
+            </p>
+            <p class="testimonial-name">– Lamar T.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION / SHIPPING -->
+    <section id="mission" class="info-section">
+      <div class="container">
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-badge">
+              <span class="info-badge-dot"></span>
+              <span>What Buckz Resells is about</span>
+            </div>
+            <h3>Level up your closet without full retail</h3>
+            <p>
+              Buckz Resells is for people who love pieces but hate paying full price. We source real, quality items—
+              clothing, sneakers, and accessories—at prices that make sense. Every item is checked before it ships, so
+              what you see is what you get when it lands.
+            </p>
+          </div>
+
+          <div id="shipping" class="info-card">
+            <div class="info-badge">
+              <span class="info-badge-dot"></span>
+              <span>Shipping &amp; processing</span>
+            </div>
+            <h3>Free shipping on all Buckz orders</h3>
+            <p>
+              Most orders process in about 1–5 business days, with shipping usually taking another 5–7 business days.
+              During holidays or heavy drops, things might move a little slower—but Buckz will always keep you updated
+              with tracking and messages.
+            </p>
+          </div>
+        </div>
+
+        <div class="info-extra-grid">
+          <div class="info-extra-card">
+            <h4>Order updates</h4>
+            <p>
+              When you check out through Buckz Resells, you’ll get order and tracking updates via email. If you ever
+              want extra info, hit @buckzresells on Instagram and we’ll tap in and check your order ASAP.
+            </p>
+          </div>
+          <div class="info-extra-card">
+            <h4>Condition &amp; authenticity</h4>
+            <p>
+              Product pages on Buckz Resells call out condition clearly. If there’s wear, flaws, or anything you should
+              know, it’s listed up front so you’re never guessing about what’s in the box.
+            </p>
+          </div>
+          <div class="info-extra-card">
+            <h4>Returns</h4>
+            <p>
+              All sales are final unless there’s a major issue with your order (wrong item, wrong size, or not as
+              described). If that ever happens, reach out within 48 hours of receiving your package and Buckz will work
+              with you to fix it.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="container footer-grid">
+      <div>
+        © <span id="year"></span> Buckz Resells. All rights reserved.
+      </div>
+      <div class="footer-links">
+        <!-- placeholder email: change when you create an official one -->
+        <a href="mailto:youremail@example.com">Support</a>
+        <a href="#shipping">Shipping &amp; Returns</a>
+        <a href="https://instagram.com/buckzresells" target="_blank" rel="noopener">@buckzresells on IG</a>
+        <a href="https://tiktok.com/@buckzresells" target="_blank" rel="noopener">@buckzresells on TikTok</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // auto-update year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // mobile nav toggle
+    const navToggle = document.querySelector(".nav-toggle");
+    const navMobile = document.querySelector(".nav-links-mobile");
+
+    if (navToggle && navMobile) {
+      navToggle.addEventListener("click", () => {
+        navToggle.classList.toggle("active");
+        if (navMobile.style.display === "flex") {
+          navMobile.style.display = "none";
+        } else {
+          navMobile.style.display = "flex";
+        }
+      });
+
+      // close mobile menu on link click
+      navMobile.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navMobile.style.display = "none";
+          navToggle.classList.remove("active");
+        });
+      });
+    }
+  </script>
+</body>
+</html>
